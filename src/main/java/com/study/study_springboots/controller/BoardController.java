@@ -16,17 +16,21 @@ public class BoardController {
         return "/WEB-INF/views/board/form.jsp";
     }
 
+    // 리스트
     @RequestMapping(value = { "/board/list", "/board" }, method = RequestMethod.GET)
     public String list(){
       
         return "/WEB-INF/views/board/list.jsp";
     }
+
+    // 게시글 보기
     @RequestMapping(value =  "/board/view", method = RequestMethod.GET)
     public String view(){
       
         return "/WEB-INF/views/board/view.jsp";
     }
     
+    // 게시글 수정하기
     @RequestMapping(value =  "/board/edit", method = RequestMethod.GET)
     public String edit(){
       

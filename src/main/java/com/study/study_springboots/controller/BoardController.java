@@ -14,6 +14,7 @@ import com.study.study_springboots.service.DataInfors;
 @Controller
 @RequestMapping(value="/board")
 public class BoardController {
+
     // form
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public ModelAndView form(ModelAndView modelAndView) {
@@ -37,6 +38,7 @@ public class BoardController {
         return modelAndView;
     }
     
+    
     // list
     @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
     public ModelAndView list() {
@@ -58,7 +60,7 @@ public class BoardController {
         DataInfors dataInfors = new DataInfors();
         BoardBean boardBean = dataInfors.getDataListWithBoardBeanNewsView(title);
         modelAndView.addObject("boardBean", boardBean);
-        
+
         return modelAndView;
     }
 

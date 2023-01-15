@@ -13,25 +13,25 @@
 <body>
     <div>/board/form</div>
     <div class="container">
-        <form action="/board/save" method="post">
+        <form action="/board_our/save" method="post">
             <div>
                 <label for="title">title</label>
-                <input type="text " name="title" id="title" />
+                <input type="text " class="form-control" name="title" id="title" />
             </div>
             <div>
                 <label for="userName">userName</label>
-                <input type="text" name="userName" id="userName" />
+                <input type="text" class="form-control" name="userName" id="userName" />
             </div>
             <div>
                 <label for="content">content</label>
-                <input type="text" name="content" id="content" />
+                <input type="text" class="form-control" name="content" id="content" />
             </div>
             <div>
                 <label for="date">date</label>
-                <input type="date" name="date" id="date" />
+                <input type="date" class="form-control" name="date" id="date" />
             </div>
             <div>
-                <button>Submit</button>
+                <button>submit</button>
             </div>
         </form>
     </div>

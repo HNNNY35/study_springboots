@@ -1,39 +1,65 @@
 package com.study.study_springboots.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.study.study_springboots.beans.BoardBean;
+import com.study.study_springboots.service.DataInfors;
 
 @Controller
+@RequestMapping(value="/board")
 public class BoardController {
-    @RequestMapping(value = "/board/form", method = RequestMethod.GET)
-    public String form() {
-        return "/WEB-INF/views/board/form.jsp";
-    }
-    @RequestMapping(value = "/board/form", method = RequestMethod.POST)
-    public String formPOST() {
-        // insert biz
-        return "/WEB-INF/views/board/form.jsp";
+    // form
+    @RequestMapping(value = "/form", method = RequestMethod.GET)
+    public ModelAndView form(ModelAndView modelAndView) {
+        modelAndView.setViewName("board/form");
+        return modelAndView;
     }
 
-    // 리스트
-    @RequestMapping(value = { "/board/list", "/board" }, method = RequestMethod.GET)
-    public String list(){
-      
-        return "/WEB-INF/views/board/list.jsp";
+
+    // edit
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public ModelAndView edit(ModelAndView modelAndView) {
+        modelAndView.setViewName("board/edit");
+        return modelAndView;
     }
 
-    // 게시글 보기
-    @RequestMapping(value =  "/board/view", method = RequestMethod.GET)
-    public String view(){
-      
-        return "/WEB-INF/views/board/view.jsp";
+
+    // save
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public ModelAndView save(ModelAndView modelAndView) {
+        modelAndView.setViewName("board/list");
+        return modelAndView;
     }
     
-    // 게시글 수정하기
-    @RequestMapping(value =  "/board/edit", method = RequestMethod.GET)
-    public String edit(){
-      
-        return "/WEB-INF/views/board/edit.jsp";
+    // list
+    @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
+    public ModelAndView list() {
+        ModelAndView modelAndView = new ModelAndView();
+        DataInfors dataInfors = new DataInfors();
+        ArrayList<BoardBean> boardList = dataInfors.getDataListWithBoardBeanNewsList();
+        
+        modelAndView.addObject("boardList", boardList);
+
+        modelAndView.setViewName("board/list");
+        
+        return modelAndView;
     }
+    
+    
+    // view
+    @RequestMapping(value = "/view", method = RequestMethod.GET)
+    public ModelAndView view(@RequestParam String title, ModelAndView modelAndView) {
+        DataInfors dataInfors = new DataInfors();
+        BoardBean boardBean = dataInfors.getDataListWithBoardBeanNewsView(title);
+        modelAndView.addObject("boardBean", boardBean);
+        
+        return modelAndView;
+    }
+
 }

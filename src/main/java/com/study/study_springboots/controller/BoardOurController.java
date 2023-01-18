@@ -2,6 +2,7 @@ package com.study.study_springboots.controller;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,10 @@ import com.study.study_springboots.service.DataInfors;
 @Controller
 @RequestMapping(value = "/board_our")
 public class BoardOurController {
+
+    @Autowired
+    DataInfors dataInfors;
+
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String edit() {
         return "board_our/edit";

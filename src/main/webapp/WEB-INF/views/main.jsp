@@ -10,5 +10,14 @@
     <div>Main ! JSP</div>
     <div>Board</div>
     <div><a href="/board/form">/board/form BoardController form() /board/form.jsp</a></div>
+
+    <div><a href="/board_our/list">/board_our/list BoardController list() /board_our/list.jsp</a></div>
+
+    <div><a href="/jstlformats">jstl_formats.jsp</a></div>
+
+    <div><a href="/notice/form">/notice/form NoticeController form() /notice/form.jsp</a></div>
+    
+    <div><a href="/commonCode/list">/commonCode/list CommonCodeController list() commonCode/list.jsp</a></div>
+    <hr>
 </body>
 </html>

@@ -15,8 +15,10 @@ public class CommonCodeController {
     @RequestMapping(value = "/commonCode/list")
     public ModelAndView list(ModelAndView modelAndView) {
         Object list = commonCodeDao.getList();
+
         modelAndView.addObject("list", list);
         modelAndView.setViewName("/commonCode/list");
-        
+
         return modelAndView;
+    }
 }
